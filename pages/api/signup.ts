@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import cookie from "cookie";
 import jwt from "jsonwebtoken";
+import cookie from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../lib/prisma";
 
@@ -35,11 +35,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.setHeader(
     "Set-Cookie",
-    cookie.serialize(process.env.ACCESS_TOKEN, token, {
+    cookie.serialize("TRACK_ACCESS_TOKEN", token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: "/",
-      sameSite: "lax",
+      sameSize: "lax",
       secure: process.env.NODE_ENV === "production",
     })
   );
