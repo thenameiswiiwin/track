@@ -11,9 +11,9 @@ const GradientLayout = ({
 }) => {
   return (
     <div
-      className={`h-full overflow-y-auto bg-gradient-to-b from-${color}-500 to-black`}
+      className={`h-full overflow-y-auto bg-gradient-to-b from-${color}-800 to-black`}
     >
-      <div className={`flex bg-${color}-600 items-end p-10`}>
+      <div className={`flex bg-${color}-800 items-end p-10`}>
         <div className="p-5">
           <Image
             src={image}
