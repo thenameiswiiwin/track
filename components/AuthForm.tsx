@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useRouter } from "next/router";
-import { useSWRConfig } from "swr";
+/* import { useSWRConfig } from "swr"; */
 import { auth } from "../lib/mutations";
 import Logo from "./Logo";
 import Spinner from "./Spinner";
@@ -11,7 +11,7 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsLoading(true);
 
