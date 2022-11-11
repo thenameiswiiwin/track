@@ -6,7 +6,9 @@ const PlayerLayout = ({ children }) => {
       <div className="absolute top-0 left-0 w-64">
         <Sidebar />
       </div>
-      <div className="ml-64 mb-24">{children}</div>
+      <div className="ml-64 mb-24">
+        <div className="h-[calc(100vh-96px)]">{children}</div>
+      </div>
       <div className="absolute left-0 bottom-0">player</div>
     </div>
   );
