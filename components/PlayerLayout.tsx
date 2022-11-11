@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
-import Sidebar from './Sidebar';
+import Sidebar from "./Sidebar";
 
-const PlayerLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
+const PlayerLayout = ({ children }) => {
   return (
     <div className="h-screen w-screen">
       <div className="absolute top-0 left-0 w-60">

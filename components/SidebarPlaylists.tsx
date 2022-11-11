@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { usePlaylist } from '../lib/hooks';
+import Link from "next/link";
+import { usePlaylist } from "../lib/hooks";
 
 const SidebarPlaylists = () => {
   const { playlists } = usePlaylist();
@@ -7,10 +7,12 @@ const SidebarPlaylists = () => {
   return (
     <div className="scrollbar my-5 h-2/3">
       <ul className="space-y-2">
-        {playlists.map((playlist: { id: number; name: string }) => (
+        {playlists.map((playlist) => (
           <li key={playlist.id} className="px-3 text-sm hover:text-white">
-            <Link href="/">
-              <div>{playlist.name}</div>
+            <Link
+              href={{ pathname: "/playlist/[id]", query: { id: playlist.id } }}
+            >
+              {playlist.name}
             </Link>
           </li>
         ))}

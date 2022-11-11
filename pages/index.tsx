@@ -1,14 +1,18 @@
-import Image from 'next/image';
-import GradientLayout from '../components/GradientLayout';
-import prisma from '../lib/prisma';
+import Image from "next/image";
+import GradientLayout from "../components/GradientLayout";
+import { useUser } from "../lib/hooks";
+import prisma from "../lib/prisma";
 
 const Home = ({ artists }) => {
+  const { user } = useUser();
+
   return (
     <GradientLayout
-      color="zinc"
+      gradient="from-zinc-800"
+      background="bg-zinc-800"
       subtitle="profile"
-      title="thenameiswiiwin"
-      description="15 public playlists"
+      title={`${user?.username}`}
+      description={`${user?.playlistsCount} public playlists`}
       image="/profile.jpg"
       roundedImage
     >
@@ -18,9 +22,9 @@ const Home = ({ artists }) => {
           <p className="text-sm text-gray-400">Only visible to you</p>
         </div>
         <div className="flex">
-          {artists.map((artist: { id: number; name: string }) => (
+          {artists.map((artist) => (
             <div key={artist.id} className="w-1/5 px-2.5">
-              <div className="w-full rounded bg-black/20 p-4">
+              <div className="w-full rounded-lg bg-black/20 p-4 hover:bg-gray-500/10">
                 <Image
                   src="/avatar.png"
                   height={144}

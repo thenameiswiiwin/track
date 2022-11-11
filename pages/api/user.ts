@@ -1,12 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { validateRoute } from "../../lib/auth";
+import prisma from "../../lib/prisma";
 
-type ValidateRouteProps = {
-  req: NextApiRequest;
-  res: NextApiResponse;
-  user: { id: number };
-};
+export default validateRoute(async (req, res, user) => {
+  const playlistsCount = await prisma.playlist.count({
+    where: { userId: user.id },
+  });
 
-export default validateRoute(({ req, res, user }: ValidateRouteProps) => {
-  res.json(user);
+  res.json({ ...user, playlistsCount });
 });

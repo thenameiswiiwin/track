@@ -16,6 +16,7 @@ model User {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   email     String     @unique
+  username  String     @unique
   password  String
   playlists Playlist[]
 }

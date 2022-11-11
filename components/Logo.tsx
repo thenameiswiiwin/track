@@ -1,7 +1,6 @@
-import { FC } from "react";
 import Image from "next/image";
 
-const Logo: FC<{ text: string; bg: string }> = ({ text, bg }) => {
+const Logo = ({ text, bg }) => {
   return (
     <>
       <Image
